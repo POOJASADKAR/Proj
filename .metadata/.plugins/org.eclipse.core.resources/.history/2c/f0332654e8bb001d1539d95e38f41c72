@@ -1,0 +1,24 @@
+package com.app.service;
+
+import java.util.List;
+
+import com.app.entities.CartItem;
+import com.app.entities.Category;
+import com.app.entities.Product;
+
+public interface CartItemService {
+
+	List<CartItem> getAllCartItemByProduct(Long id); 
+	
+	List<CartItem> getallProducts(Long id);
+    
+   CartItem addCartItem(CartItem cartI);
+    
+	   String deleteCategorybyId(Long id);
+	    
+	   Category updateCategory(Category cat);
+	    
+	    Category findByName(String categoryName);
+
+		List<Category> getallCategories();
+}

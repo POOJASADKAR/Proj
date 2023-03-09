@@ -1,0 +1,18 @@
+package com.app.service;
+
+import java.util.List;
+
+import com.app.entities.Customer;
+import com.app.entities.Product;
+
+public interface CustomerService {
+	List<Customer> getAllCustomerById(Long id);
+	
+	Customer findById (String CustomerId);
+
+	List<Customer> getAllCustomerById();
+	
+	Customer addCustomerById(Long id);
+
+	void addproduct(Product product);
+}

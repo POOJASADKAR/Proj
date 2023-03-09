@@ -1,0 +1,93 @@
+package com.app.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.entities.Category;
+import com.app.entities.Customer;
+import com.app.entities.Product;
+import com.app.repository.CartRepository;
+import com.app.repository.CustomerRepository;
+@Service
+@Transactional
+
+public class CustomerServiceImpl implements CustomerService {
+	
+	@Autowired
+	private CustomerRepository custrepo;
+	
+	@Autowired
+	private CartRepository cartrepo;
+	
+
+	@Override
+	public Optional<Customer> getAllCustomerById(Long id) {
+		
+		return custrepo.findById(id);
+	}
+
+	@Override
+	public Optional<Customer> findCustmerById(Long customerId) {
+		
+		return custrepo.findById(customerId);
+	}
+
+
+	@Override
+	public List<Customer> getAllCustomerById() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Customer addCustomerById(Customer customer) {
+		// TODO Auto-generated method stub
+		return custrepo.save(customer);
+	}
+
+	@Override
+	public Customer addCustomerById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Customer addCustomerById(Long id, Customer newCustomer) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addproduct(Product product) {
+		
+		}
+
+	@Override
+	public Customer updateCustomer(Customer cust) {
+		
+		return custrepo.save(cust);
+	}
+
+	@Override
+	public String deleteCustomerbyId(Long id) {
+		Customer customer=custrepo.deleteById(id).get();
+		return customer + "deleted successfully";
+	}
+
+//	Category category=catrepo.findById(id).get();
+//	
+//	String categoryName=category.getCategoryName();
+//	category.getProducts().forEach(product->{
+//		 prodrepo.deleteById(product.getId());
+//		
+//	});
+//	catrepo.deleteById(id);
+//	return categoryName + "Category Deleted Successfully";
+
+}

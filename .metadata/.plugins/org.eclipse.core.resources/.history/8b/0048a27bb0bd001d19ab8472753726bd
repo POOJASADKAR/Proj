@@ -1,0 +1,56 @@
+package com.app.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.app.entities.Artist;
+import com.app.repository.ArtistRepository;
+
+@Service
+@Transactional 
+public class ArtistServiceImpl implements ArtistService {
+	
+	@Autowired
+	private ArtistRepository artistrepo;
+
+	@Override
+	public List<Artist> getAllArtistByEmail(String email) {
+		
+		return ((ArtistService) artistrepo).getallArtist();
+	}
+
+	@Override
+	public Artist addArtist(Artist artist) {
+		
+		return artistrepo.save(artist);
+	}
+
+	@Override
+	public String deleteArtistbyId(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Artist updateArtist(Artist artist) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Artist findByName(String artistName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Artist> getallArtist() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

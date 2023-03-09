@@ -1,0 +1,121 @@
+package com.app.entities;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="carts")
+public class Cart extends BaseEntity {
+	@Column(name="total_items")
+	private int totalItems;
+	@Column(name="total_cart_price")
+	private double totalCartPrice;
+	@Column(name="crated_on")
+	private LocalDate  createdOn;
+	@Column(name="last_updated_on")
+	private LocalDate lastupdatedOn;
+	
+	//cart---->*cartItems
+	//one,inverse,parent
+	@OneToMany(mappedBy="shoppingCart",cascade=CascadeType.ALL,orphanRemoval=true)
+    private List<CartItem> cartItems=new ArrayList<>();
+	
+
+	//cart:one,owning,child
+	@OneToOne  //def fetch type:EAGER
+	//@JoinColumn(name="customer_id",nullable=false)
+	private Customer customercart;
+
+
+	public Cart(int totalItems, double totalCartPrice, LocalDate createdOn, LocalDate lastupdatedOn,
+			List<CartItem> cartItems, Customer customercart) {
+		super();
+		this.totalItems = totalItems;
+		this.totalCartPrice = totalCartPrice;
+		this.createdOn = createdOn;
+		this.lastupdatedOn = lastupdatedOn;
+		this.cartItems = cartItems;
+		this.customercart = customercart;
+	}
+
+
+	public int getTotalItems() {
+		return totalItems;
+	}
+
+
+	public void setTotalItems(int totalItems) {
+		this.totalItems = totalItems;
+	}
+
+
+	public double getTotalCartPrice() {
+		return totalCartPrice;
+	}
+
+
+	public void setTotalCartPrice(double totalCartPrice) {
+		this.totalCartPrice = totalCartPrice;
+	}
+
+
+	public LocalDate getCreatedOn() {
+		return createdOn;
+	}
+
+
+	public void setCreatedOn(LocalDate createdOn) {
+		this.createdOn = createdOn;
+	}
+
+
+	public LocalDate getLastupdatedOn() {
+		return lastupdatedOn;
+	}
+
+
+	public void setLastupdatedOn(LocalDate lastupdatedOn) {
+		this.lastupdatedOn = lastupdatedOn;
+	}
+
+
+	public List<CartItem> getCartItems() {
+		return cartItems;
+	}
+
+
+	public void setCartItems(List<CartItem> cartItems) {
+		this.cartItems = cartItems;
+	}
+
+
+	public Customer getCustomercart() {
+		return customercart;
+	}
+
+
+	public void setCustomercart(Customer customercart) {
+		this.customercart = customercart;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Cart [totalItems=" + totalItems + ", totalCartPrice=" + totalCartPrice + ", createdOn=" + createdOn
+				+ ", lastupdatedOn=" + lastupdatedOn + ", cartItems=" + cartItems + ", customercart=" + customercart
+				+ "]";
+	}
+
+
+	
+
+}

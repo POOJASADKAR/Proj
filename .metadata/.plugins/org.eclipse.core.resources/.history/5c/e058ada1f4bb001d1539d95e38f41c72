@@ -1,0 +1,64 @@
+package com.app.service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.entities.Customer;
+import com.app.entities.Product;
+import com.app.repository.CustomerRepository;
+@Service
+@Transactional
+
+public class CustomerServiceImpl implements CustomerService {
+	
+	@Autowired
+	private CustomerRepository custrepo;
+
+	@Override
+	public List<Customer> getAllCustomerById(Long id) {
+		
+		return CustomerRepositoryfindAll();
+	}
+
+	private List<Customer> CustomerRepositoryfindAll() {
+		
+		return custrepo.findAll();
+	}
+
+	@Override
+	public Customer findById(String CustomerId) {
+	
+		return null;
+	}
+
+	@Override
+	public List<Customer> getAllCustomerById() {
+		
+		return null;
+	}
+
+	@Override
+	public Customer addCustomerById(Long id) {
+		
+		return catrepo.save(cat);
+	}
+
+	@Override
+	public void addproduct(Product product) {
+		
+		return;
+		
+	}
+
+	@Override
+	public Customer addCustomerById(Customer customer) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}

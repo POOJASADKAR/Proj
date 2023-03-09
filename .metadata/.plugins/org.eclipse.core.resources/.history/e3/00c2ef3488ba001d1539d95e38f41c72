@@ -1,0 +1,19 @@
+package com.app.service;
+
+import java.util.List;
+
+import com.app.entities.Category;
+
+public interface CategoryService {
+       List<Category> getallCategories(Long id);
+       
+       Category addCategory(Category cat);
+       
+	   String deleteCategorybyId(Long id);
+	    
+	   Category updateCategory(Category cat);
+	    
+	    Category findByName(String categoryName);
+
+		Object getallCategories();
+}

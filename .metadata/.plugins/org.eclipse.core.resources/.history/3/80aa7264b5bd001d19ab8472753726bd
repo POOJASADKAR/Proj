@@ -1,0 +1,22 @@
+package com.app.service;
+
+import java.util.List;
+
+import com.app.entities.Artist;
+import com.app.entities.Category;
+import com.app.entities.Product;
+
+public interface ArtistService {
+
+	List<Artist> getAllArtistByEmail(String email); 
+    
+   Artist addArtist(Artist artist);
+    
+	   String deleteArtistbyId(Long id);
+	    
+	   Artist updateArtist(Artist artist);
+	    
+	    Artist findByName(String artistName);
+
+		List<Artist> getallArtist();
+}
