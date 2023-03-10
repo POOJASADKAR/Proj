@@ -1,0 +1,60 @@
+package com.app.service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.entities.Cart;
+import com.app.entities.Order;
+import com.app.repository.OrderRepository;
+
+@Service
+@Transactional
+public class OrderServiceImpl implements OrderService {
+	
+	@Autowired
+	private OrderRepository orderrepo;
+	
+	@Autowired
+	private Cart cartrepo;
+
+	@Override
+	public List<Order> getOrders(Long id) {
+		
+		return orderrepo.findOrderByCustomerId(id);
+	}
+
+	@Override
+	public Order addOrder(Order order) {
+		
+		return orderrepo.save();
+	}
+
+	@Override
+	public String deleteOrderbyId(Long id) {
+	
+		return orderrepo.del;
+	}
+
+	@Override
+	public Order updateOrder(Order order) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Order findByName(String orderName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Order> getallOrder() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

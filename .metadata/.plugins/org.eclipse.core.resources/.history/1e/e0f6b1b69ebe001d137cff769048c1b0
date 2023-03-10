@@ -1,0 +1,20 @@
+//package com.app.service;
+//
+//import java.util.List;
+//
+//import com.app.entities.Order;
+//
+//public interface OrderService {
+//
+//	List<Order> getOrders(Long id);
+//    
+//    Order addOrder(Order order);
+//    
+//	   String deleteOrderbyId(Long id);
+//	    
+//	   Order updateOrder(Order order);
+//	    
+//	    Order findByName(String orderName);
+//
+//		List<Order> getallOrder();
+//}

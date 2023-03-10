@@ -1,0 +1,6 @@
+package com.app.repository;
+
+public interface BillingRepository {
+
+	List<Artist> findArtistById(Long id);
+}

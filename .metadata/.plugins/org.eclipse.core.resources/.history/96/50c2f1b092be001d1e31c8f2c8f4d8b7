@@ -1,0 +1,79 @@
+package com.app.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Table(name="Orders")
+@Entity
+public class Order extends BaseEntity{
+	
+	@Column(name="cart",length = 20)
+	private String Cart;
+	
+	@Column(name="product",length = 20)
+	private String Product;
+	
+	@Column(name="cartItem",length = 20)
+	private String CartItem;
+	
+	@OneToOne
+	@JoinColumn(name="cust_Order")
+	private Order custOrder;
+
+	public Order(String cart, String product, String cartItem, Order custOrder) {
+		super();
+		Cart = cart;
+		Product = product;
+		CartItem = cartItem;
+		this.custOrder = custOrder;
+	}
+
+	public String getCart() {
+		return Cart;
+	}
+
+	public void setCart(String cart) {
+		Cart = cart;
+	}
+
+	public String getProduct() {
+		return Product;
+	}
+
+	public void setProduct(String product) {
+		Product = product;
+	}
+
+	public String getCartItem() {
+		return CartItem;
+	}
+
+	public void setCartItem(String cartItem) {
+		CartItem = cartItem;
+	}
+
+	public Order getCustOrder() {
+		return custOrder;
+	}
+
+	public void setCustOrder(Order custOrder) {
+		this.custOrder = custOrder;
+	}
+
+	@Override
+	public String toString() {
+		return "Order [Cart=" + Cart + ", Product=" + Product + ", CartItem=" + CartItem + ", custOrder=" + custOrder
+				+ "]";
+	}
+	
+	
+	
+	
+	
+	
+	
+
+}

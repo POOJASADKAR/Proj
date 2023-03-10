@@ -1,0 +1,19 @@
+package com.app.repository;
+
+import java.util.List;
+
+import org.springframework.data.domain.Sort.Order;
+
+import com.app.entities.Category;
+
+public interface OrderRepository {
+
+	List<com.app.entities.Order> findOrderByCustomerId(Long id);
+
+	com.app.entities.Order save(OrderRepository orderrepo);
+
+	String delete(OrderRepository orderrepo);
+
+	com.app.entities.Order findOrderByCustomerName();
+
+}

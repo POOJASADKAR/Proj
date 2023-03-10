@@ -1,0 +1,10 @@
+package com.app.repository;
+
+import java.util.Optional;
+
+import com.app.entities.Category;
+
+public interface OrderRepository {
+
+	Optional<Ord> findById(Category catdto);
+}

@@ -1,0 +1,26 @@
+package com.app.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Table(name="Orders")
+@Entity
+public class Order extends BaseEntity{
+	
+	@Column(name="Cart",length = 20)
+	private String Cart;
+	
+	@Column(name="Product",length = 20)
+	private String Cart;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

@@ -1,0 +1,31 @@
+package com.app.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Table(name="Orders")
+@Entity
+public class Order extends BaseEntity{
+	
+	@Column(name="cart",length = 20)
+	private String Cart;
+	
+	@Column(name="product",length = 20)
+	private String Product;
+	
+	@Column(name="cartItem",length = 20)
+	private String CartItem;
+	
+	@OneToOne
+	@JoinColumn(name="cust_Order")
+	private Order custoOrder;
+	
+	
+	
+	
+	
+
+}

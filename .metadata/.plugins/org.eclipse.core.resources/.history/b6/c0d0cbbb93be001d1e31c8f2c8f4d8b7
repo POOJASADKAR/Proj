@@ -1,0 +1,17 @@
+package com.app.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Billing")
+public class Billing extends BaseEntity{
+	
+	@Column(name="order")
+	private String Order;
+	
+	@Column(name="price")
+	private double price;
+
+}
